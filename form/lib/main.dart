@@ -1,0 +1,203 @@
+import 'package:form/sources/form2_segarra.dart';
+import 'package:form/sources/form3_segarra.dart';
+
+import './sources/conditional_fields.dart';
+import './sources/dynamic_fields.dart';
+import './sources/related_fields.dart';
+import './sources/form1_segarra.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
+import 'package:form_builder_validators/form_builder_validators.dart';
+
+import 'code_page.dart';
+import 'sources/complete_form.dart';
+import 'sources/custom_fields.dart';
+import 'sources/signup_form.dart';
+
+void main() => runApp(const MyApp());
+
+class MyApp extends StatelessWidget {
+  const MyApp({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return const MaterialApp(
+      title: 'Flutter FormBuilder Demo',
+      debugShowCheckedModeBanner: false,
+      localizationsDelegates: [
+        FormBuilderLocalizations.delegate,
+        ...GlobalMaterialLocalizations.delegates,
+        GlobalWidgetsLocalizations.delegate,
+      ],
+      supportedLocales: FormBuilderLocalizations.supportedLocales,
+      home: _HomePage(),
+    );
+  }
+}
+
+class _HomePage extends StatelessWidget {
+  const _HomePage({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return CodePage(
+      title: 'Flutter Form Builder',
+      child: ListView(
+        children: <Widget>[
+          ListTile(
+            title: const Text('Complete Form'),
+            trailing: const Icon(Icons.arrow_right_sharp),
+            onTap: () {
+              Navigator.of(context).push(
+                MaterialPageRoute(
+                  builder: (context) {
+                    return const CodePage(
+                      title: 'Complete Form',
+                      child: CompleteForm(),
+                    );
+                  },
+                ),
+              );
+            },
+          ),
+          const Divider(),
+          ListTile(
+            title: const Text('Custom Fields'),
+            trailing: const Icon(Icons.arrow_right_sharp),
+            onTap: () {
+              Navigator.of(context).push(
+                MaterialPageRoute(
+                  builder: (context) {
+                    return const CodePage(
+                      title: 'Custom Fields',
+                      child: CustomFields(),
+                    );
+                  },
+                ),
+              );
+            },
+          ),
+          const Divider(),
+          ListTile(
+            title: const Text('Signup Form'),
+            trailing: const Icon(Icons.arrow_right_sharp),
+            onTap: () {
+              Navigator.of(context).push(
+                MaterialPageRoute(
+                  builder: (context) {
+                    return const CodePage(
+                      title: 'Signup Form',
+                      child: SignupForm(),
+                    );
+                  },
+                ),
+              );
+            },
+          ),
+          const Divider(),
+          ListTile(
+            title: const Text('Dynamic Form'),
+            trailing: const Icon(Icons.arrow_right_sharp),
+            onTap: () {
+              Navigator.of(context).push(
+                MaterialPageRoute(
+                  builder: (context) {
+                    return const CodePage(
+                      title: 'Dynamic Form',
+                      child: DynamicFields(),
+                    );
+                  },
+                ),
+              );
+            },
+          ),
+          const Divider(),
+          ListTile(
+            title: const Text('Conditional Form'),
+            trailing: const Icon(Icons.arrow_right_sharp),
+            onTap: () {
+              Navigator.of(context).push(
+                MaterialPageRoute(
+                  builder: (context) {
+                    return const CodePage(
+                      title: 'Conditional Form',
+                      child: ConditionalFields(),
+                    );
+                  },
+                ),
+              );
+            },
+          ),
+          const Divider(),
+          ListTile(
+            title: const Text('Related Fields'),
+            trailing: const Icon(Icons.arrow_right_sharp),
+            onTap: () {
+              Navigator.of(context).push(
+                MaterialPageRoute(
+                  builder: (context) {
+                    return const CodePage(
+                      title: 'Related Fields',
+                      child: RelatedFields(),
+                    );
+                  },
+                ),
+              );
+            },
+          ),
+          const Divider(),
+          ListTile(
+            title: const Text('Form1_Segarra'),
+            trailing: const Icon(Icons.arrow_right_sharp),
+            onTap: () {
+              Navigator.of(context).push(
+                MaterialPageRoute(
+                  builder: (context) {
+                    return const CodePage(
+                      title: 'Form1_Segarra',
+                      child: Form1Segarra(),
+                    );
+                  },
+                ),
+              );
+            },
+          ),
+          const Divider(),
+          ListTile(
+            title: const Text('Form2_Segarra'),
+            trailing: const Icon(Icons.arrow_right_sharp),
+            onTap: () {
+              Navigator.of(context).push(
+                MaterialPageRoute(
+                  builder: (context) {
+                    return const CodePage(
+                      title: 'Form2_Segarra',
+                      child: Form2Segarra(),
+                    );
+                  },
+                ),
+              );
+            },
+          ),
+          const Divider(),
+          ListTile(
+            title: const Text('Form3_Segarra'),
+            trailing: const Icon(Icons.arrow_right_sharp),
+            onTap: () {
+              Navigator.of(context).push(
+                MaterialPageRoute(
+                  builder: (context) {
+                    return const CodePage(
+                      title: 'Form3_Segarra',
+                      child: Form3Segarra(),
+                    );
+                  },
+                ),
+              );
+            },
+          ),
+        ],
+      ),
+    );
+  }
+}
